@@ -30,7 +30,7 @@ class App extends Component {
 
   handleAddTask(task){
 
-    fetch('http://localhost:4000/tasks/add',{
+    fetch('http://localhost:4000/api/tasks/add',{
       method: 'POST',
       body: JSON.stringify(task),
       headers: {"Content-Type": "application/json"}
@@ -55,7 +55,7 @@ class App extends Component {
 
   handleRemoveTask(index){
 
-    fetch('http://localhost:4000/tasks/delete',{
+    fetch('http://localhost:4000/api/tasks/delete',{
       method: 'DELETE',
       body: JSON.stringify({id: this.state.tasks[index].id}),
       headers: {"Content-Type": "application/json"}
@@ -91,7 +91,7 @@ class App extends Component {
 
 
   getTasks = _ => {
-    fetch('http://localhost:4000/tasks')
+    fetch('http://localhost:4000/api/tasks')
       .then(response => response.json())
       .then(response => this.setState({
           tasks: response.data
